@@ -1,5 +1,6 @@
 package cn.geektown.helloworld;
 
+import cn.geektown.helloworld.resources.NLPRecognitionResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -24,14 +25,19 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     @Override
     public void run(HelloWorldConfiguration configuration,
                     Environment environment) {
-        final HelloWorldResource resource = new HelloWorldResource(
+        final HelloWorldResource helloWorldResource = new HelloWorldResource(
             configuration.getTemplate(),
             configuration.getDefaultName()
         );
+
+        final NLPRecognitionResource recognitionResource = new NLPRecognitionResource();
         final TemplateHealthCheck healthCheck =
             new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
-        environment.jersey().register(resource);
+
+        environment.jersey().register(helloWorldResource);
+        environment.jersey().register(recognitionResource);
+
     }
 
 }
