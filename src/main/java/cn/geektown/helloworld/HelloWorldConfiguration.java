@@ -1,5 +1,6 @@
 package cn.geektown.helloworld;
 
+import cn.geektown.helloworld.core.Template;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,5 +30,9 @@ public class HelloWorldConfiguration extends Configuration {
     @JsonProperty
     public void setDefaultName(String name) {
         this.defaultName = name;
+    }
+    
+    public Template buildTemplate() {
+        return new Template(template, defaultName);
     }
 }
