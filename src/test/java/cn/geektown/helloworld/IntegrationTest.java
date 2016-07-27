@@ -1,5 +1,6 @@
 package cn.geektown.helloworld;
 
+import cn.geektown.helloworld.api.Recognition;
 import cn.geektown.helloworld.api.Saying;
 import io.dropwizard.testing.ConfigOverride;
 import io.dropwizard.testing.ResourceHelpers;
@@ -16,6 +17,8 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -58,6 +61,17 @@ public class IntegrationTest {
                 .request()
                 .get(Saying.class);
         assertThat(saying.getContent()).isEqualTo(RULE.getConfiguration().buildTemplate().render(name));
+    }
+
+    @Test
+    public void testKeyword() throws Exception {
+        final Optional<String> name = Optional.of("英国在哪里？");
+        final List<Map> reg = client.target("http://localhost:" + RULE.getLocalPort() + "/keyword")
+                .queryParam("corpus", name.get())
+                .request()
+                .get(List.class);
+        System.out.println(reg.get(0));
+        //assertThat(reg.get(0).getWord()).isEqualTo("英国");
     }
 
 }

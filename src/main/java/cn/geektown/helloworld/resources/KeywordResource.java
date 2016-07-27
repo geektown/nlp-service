@@ -2,10 +2,10 @@ package cn.geektown.helloworld.resources;
 
 
 import cn.geektown.helloworld.api.Recognition;
-import com.google.common.base.Optional;
 import com.codahale.metrics.annotation.Timed;
+import com.google.common.base.Optional;
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.seg.Segment;
+import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.NLPTokenizer;
 
@@ -15,23 +15,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-@Path("/recognition")
+@Path("/keyword")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-public class NLPRecognitionResource {
+public class KeywordResource {
 
     @GET
     @Timed
     public List<Recognition> doRecognition(@QueryParam("corpus") Optional<String> corpus) {
-        // Segment segment = HanLP.newSegment().enableNameRecognize(true);
+        List<String> keywords = HanLP.extractKeyword(corpus.or(""), 5);
+        List<Recognition> recognitions = new ArrayList<>();
         List<Term> termList = NLPTokenizer.segment(corpus.or(""));
-        List<Recognition> recognitions = new ArrayList<>() ;
-
+        Map<String, Nature> map = new HashMap<>();
         for (Term term : termList) {
-            recognitions.add(new Recognition(term.word, term.nature.name() ));
+            map.put(term.word, term.nature);
         }
+        recognitions.addAll(keywords.stream().map(word -> new Recognition(word, map.get(word).name())).collect(Collectors.toList()));
         return recognitions;
     }
 }

@@ -1,5 +1,6 @@
 package cn.geektown.helloworld;
 
+import cn.geektown.helloworld.resources.KeywordResource;
 import cn.geektown.helloworld.resources.NLPRecognitionResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -37,6 +38,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
         environment.jersey().register(helloWorldResource);
         environment.jersey().register(recognitionResource);
+        environment.jersey().register(new KeywordResource());
 
     }
 
