@@ -56,7 +56,7 @@ public class IntegrationTest {
     @Test
     public void testHelloWorld() throws Exception {
         final Optional<String> name = Optional.of("Dr. IntegrationTest");
-        final Saying saying = client.target("http://localhost:" + RULE.getLocalPort() + "/hello-world")
+        final Saying saying = client.target("http://localhost:" + RULE.getLocalPort() + "/hanlp/hello-world")
                 .queryParam("name", name.get())
                 .request()
                 .get(Saying.class);
@@ -66,7 +66,7 @@ public class IntegrationTest {
     @Test
     public void testKeyword() throws Exception {
         final Optional<String> name = Optional.of("英国在哪里？");
-        final List<Map> reg = client.target("http://localhost:" + RULE.getLocalPort() + "/keyword")
+        final List<Map> reg = client.target("http://localhost:" + RULE.getLocalPort() + "/hanlp/keyword")
                 .queryParam("corpus", name.get())
                 .request()
                 .get(List.class);

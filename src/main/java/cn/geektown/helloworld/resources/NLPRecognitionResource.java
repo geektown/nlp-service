@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/recognition")
+@Path("/hanlp/recognition")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class NLPRecognitionResource {
 

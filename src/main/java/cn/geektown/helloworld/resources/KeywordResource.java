@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Path("/keyword")
+@Path("/hanlp/keyword")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class KeywordResource {
 
