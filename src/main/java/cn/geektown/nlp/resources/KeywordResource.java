@@ -1,7 +1,7 @@
-package cn.geektown.helloworld.resources;
+package cn.geektown.nlp.resources;
 
 
-import cn.geektown.helloworld.api.Recognition;
+import cn.geektown.nlp.api.Recognition;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import com.hankcs.hanlp.HanLP;

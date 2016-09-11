@@ -1,20 +1,15 @@
-package cn.geektown.helloworld;
+package cn.geektown.nlp;
 
-import cn.geektown.helloworld.api.Recognition;
-import cn.geektown.helloworld.api.Saying;
-import io.dropwizard.testing.ConfigOverride;
+import cn.geektown.nlp.api.Saying;
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;

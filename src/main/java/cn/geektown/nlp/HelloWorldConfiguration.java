@@ -1,6 +1,6 @@
-package cn.geektown.helloworld;
+package cn.geektown.nlp;
 
-import cn.geektown.helloworld.core.Template;
+import cn.geektown.nlp.core.Template;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;

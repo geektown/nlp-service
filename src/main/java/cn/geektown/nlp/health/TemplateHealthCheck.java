@@ -1,4 +1,4 @@
-package cn.geektown.helloworld.health;
+package cn.geektown.nlp.health;
 
 import com.codahale.metrics.health.HealthCheck;
 

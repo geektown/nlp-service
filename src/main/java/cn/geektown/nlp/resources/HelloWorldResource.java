@@ -1,6 +1,6 @@
-package cn.geektown.helloworld.resources;
+package cn.geektown.nlp.resources;
 
-import cn.geektown.helloworld.api.Saying;
+import cn.geektown.nlp.api.Saying;
 import com.google.common.base.Optional;
 import com.codahale.metrics.annotation.Timed;
 

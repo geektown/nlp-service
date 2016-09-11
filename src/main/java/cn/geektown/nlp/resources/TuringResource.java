@@ -1,4 +1,4 @@
-package cn.geektown.helloworld.resources;
+package cn.geektown.nlp.resources;
 
 
 import com.alibaba.fastjson.JSONObject;

@@ -1,4 +1,4 @@
-package cn.geektown.helloworld.core;
+package cn.geektown.nlp.core;
 
 import java.util.Optional;
 

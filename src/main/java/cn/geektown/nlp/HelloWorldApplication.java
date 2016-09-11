@@ -1,13 +1,13 @@
-package cn.geektown.helloworld;
+package cn.geektown.nlp;
 
-import cn.geektown.helloworld.resources.KeywordResource;
-import cn.geektown.helloworld.resources.NLPRecognitionResource;
-import cn.geektown.helloworld.resources.TuringResource;
+import cn.geektown.nlp.resources.KeywordResource;
+import cn.geektown.nlp.resources.NLPRecognitionResource;
+import cn.geektown.nlp.resources.TuringResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import cn.geektown.helloworld.resources.HelloWorldResource;
-import cn.geektown.helloworld.health.TemplateHealthCheck;
+import cn.geektown.nlp.resources.HelloWorldResource;
+import cn.geektown.nlp.health.TemplateHealthCheck;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
     public static void main(String[] args) throws Exception {

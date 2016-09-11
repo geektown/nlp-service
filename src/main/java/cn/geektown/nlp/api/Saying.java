@@ -1,4 +1,4 @@
-package cn.geektown.helloworld.api;
+package cn.geektown.nlp.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
