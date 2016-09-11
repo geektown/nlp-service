@@ -1,12 +1,9 @@
 package cn.geektown.nlp;
 
-import cn.geektown.nlp.resources.KeywordResource;
-import cn.geektown.nlp.resources.NLPRecognitionResource;
-import cn.geektown.nlp.resources.TuringResource;
+import cn.geektown.nlp.resources.*;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import cn.geektown.nlp.resources.HelloWorldResource;
 import cn.geektown.nlp.health.TemplateHealthCheck;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
@@ -41,6 +38,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         environment.jersey().register(recognitionResource);
         environment.jersey().register(new KeywordResource());
         environment.jersey().register(new TuringResource());
+        environment.jersey().register(new PinyinConverterResource());
 
     }
 

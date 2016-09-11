@@ -69,4 +69,14 @@ public class IntegrationTest {
         //assertThat(reg.get(0).getWord()).isEqualTo("英国");
     }
 
+    @Test
+    public void testPinyin() throws Exception {
+        final Optional<String> name = Optional.of("王昌龄-出塞");
+        final String pinyin = client.target("http://localhost:" + RULE.getLocalPort() + "/hanlp/pinyinconverter")
+                .queryParam("corpus", name.get())
+                .request()
+                .get(String.class);
+        System.out.println(pinyin);
+    }
+
 }
